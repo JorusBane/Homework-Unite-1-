@@ -1,18 +1,10 @@
 import random
-Pass =[]
-list = []
-res = []
-top = []
-bot = []
-firts_count = random.randint(3, 20)
-print(f"Первая ячека : {firts_count}")
-for i in range(1,21):
-    if i != firts_count:
-        list.append(i)
-print(list)
-for brut in list:
-    for brut1 in list:
-       # if (firts_count % (brut + brut1) == 0):
-            print(brut)
-            print(brut1)
-    break
+Pass = ""
+my_list = []
+count = random.randint(3, 20)
+print(f"Первая ячейка : {count}")
+for brut in range(1, count):
+    for brut1 in range(brut, count):
+        if count % ( brut1 + brut )== 0 and brut != brut1:
+           Pass += str(brut) + str(brut1)
+print(Pass)
