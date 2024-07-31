@@ -1,10 +1,8 @@
 
 def check_email(mail):
-    flag = mail.endswith((".com",".ru",".net"))
     if ("@"  in mail) and (mail.endswith((".com",".ru",".net"))):
-        flag = True
-    return flag
-
+        return True
+    return False
 
 def send_email(message, recipient, *, sender="university.help@gmail.com"):
     if not check_email(recipient) or not check_email(sender):
