@@ -1,18 +1,23 @@
-def check_dict (dict_elem):
-    dict_result = len(dict_elem.items())
-    return dict_result
+def calculate_structure_sum (data_structure):
+        if isinstance(data_structure, (int, bool, float)) :
+            return  data_structure
+        elif isinstance(data_structure, str):
+            return len(data_structure)
+        elif isinstance(data_structure, (list, set, tuple)):
+            data_structure = list(data_structure)
+            if len(data_structure) == 0:
+                return 0
+            elif len(data_structure) == 1:
+                return calculate_structure_sum(data_structure[0])
+            else:
+                return (calculate_structure_sum(data_structure[0]) +
+                         calculate_structure_sum(data_structure[1:]))
+        elif isinstance(data_structure, dict):
+            keys = list(data_structure.keys())
+            values = list(data_structure.values())
+            return (calculate_structure_sum(keys) +
+                    calculate_structure_sum(values))
 
-def calculate_structure_sum (*args):
-    if data_structure != None:
-        count = 0
-        if isinstance((data_structure[count]), dict) :
-            result = check_dict(data_structure[count])
-        elif len(data_structure[count]) > 1:
-            result = sum(data_structure[count])
-            data_structure[count].pop()
-        else:
-            result = data_structure[count].pop()
-    return result + calculate_structure_sum(*args)
 
 
 
