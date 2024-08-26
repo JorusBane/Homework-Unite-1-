@@ -2,6 +2,14 @@ class House:
     def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = number_of_floors
+    
+    def go_to(self, floor):
+        if floor < 1 or floor > self.number_of_floors:
+            print("Такого этажа не существует")
+        else:
+            for i in range(1, floor+1):
+                print(i)
+
     def __len__(self):
         return self.number_of_floors
 
