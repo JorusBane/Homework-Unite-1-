@@ -10,10 +10,11 @@ class House:
                 print(i)
 
 
-h3 = House( "ЖК 'Эльбрус'", 30)
+
 h1 = House('ЖК Горский', 18)
 h2 = House('Домик в деревне', 2)
+h3 = House( "ЖК 'Эльбрус'", 30)
 h1.go_to(5)
 h1.go_to(0)
-h2.go_to(10)
 h3.go_to(9)
+h2.go_to(10)
