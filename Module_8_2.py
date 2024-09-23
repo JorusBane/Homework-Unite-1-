@@ -9,19 +9,16 @@ def personal_sum(numbers):
         except(TypeError):
             incorrect_data += 1
             print(f"Некорректный тип данных для подсчёта суммы {i}")
-    return result
+    return result, incorrect_data
 
 
 def len_local(numbers):
-    count_elem = 0
-    for i in numbers:
-        if isinstance(i, int):
-            count_elem += 1
+    count_elem = len(numbers) - personal_sum(numbers)[1]
     return count_elem
 
 def calculate_average(numbers):
     try:
-        return personal_sum(numbers)/ len_local(numbers)
+        return personal_sum(numbers)[0]/ len_local(numbers)
     except(ZeroDivisionError):
         return 0
     except(TypeError):
