@@ -2,7 +2,7 @@ from math import pi
 
 
 class Figure:
-    side_count = 0
+    sides_count = 0
 
     def __init__(self, color, *sides):
         if self.sides_count == len(sides):
@@ -37,7 +37,7 @@ class Figure:
         return sum(self.__sides)
 
     def set_sides(self, *new_sides):
-        if len(new_sides) == self.side_count:
+        if len(new_sides) == self.sides_count:
             self.__sides == list(new_sides)
 
 
