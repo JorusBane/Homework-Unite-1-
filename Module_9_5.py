@@ -11,22 +11,16 @@ class Iterator:
 
 
     def __iter__(self):
-        self.i = 0
         self.pointer = self.start
         return self
 
     def __next__(self):
-        if self.i == 0:
-            i += 1
-            return self.start
+        if (self.step > 0 and self.pointer > self.stop or
+            self.step < 0 and self.pointer < self.stop):
+                raise StopIteration
+        counter = self.pointer
         self.pointer += self.step
-        if self.step > 0:
-            if self.pointer > self.stop:
-                raise StopIteration
-        else:
-            if self.pointer < self.stop:
-                raise StopIteration
-        return self.pointer
+        return counter
 
 
 try:
