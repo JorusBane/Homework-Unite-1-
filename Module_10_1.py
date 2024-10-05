@@ -5,9 +5,7 @@ from datetime import datetime
 
 def write_words(word_count, file_name):
     with (open(file_name, 'w', encoding='utf-8') as file):
-        for num in range(word_count + 1):
-            file.writelines(f'Какое-то слово {num}\n ')
-            sleep(0.1)
+         file.writelines(f'Какое-то слово {num}\n {sleep(0.1)}' for num in range(word_count + 1))
     print(f"Завершилась запись в файл {file_name}")
 
 
