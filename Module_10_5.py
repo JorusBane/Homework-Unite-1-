@@ -3,11 +3,7 @@ import multiprocessing
 
 def read_info(names):
     all_data = []
-    for obj in names:
-        with(open(obj, 'r', encoding='utf-8') as file):
-            # for line in file:
-            #     # all_data.append(line.readline())
-            #     all_data.append(line)
+    with(open(names, 'r', encoding='utf-8') as file):
             while True:
                 line = file.readline()
                 if not line:
@@ -17,13 +13,14 @@ def read_info(names):
 
 start = datetime.datetime.now()
 filenames = [f'./file {number}.txt' for number in range(1, 5)]
-read_info(filenames)
+for file in filenames:
+    read_info(file)
 end = datetime.datetime.now() - start
 print(end)
 
-
-start = datetime.datetime.now()
-with multiprocessing.Pool(processes=4) as pool:
-    pool.map(read_info, filenames)
-end = datetime.datetime.now() - start
-print(end)
+if __name__ == '__main__':
+    start = datetime.datetime.now()
+    with multiprocessing.Pool(processes=4) as pool:
+        pool.map(read_info, filenames)
+    end = datetime.datetime.now() - start
+    print(end)
