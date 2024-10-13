@@ -1,6 +1,7 @@
 import datetime
 import multiprocessing
-
+#0:00:01.316217 - Многопроцессорный
+#0:00:02.858101 - Линейный
 def read_info(names):
     all_data = []
     with(open(names, 'r', encoding='utf-8') as file):
@@ -10,9 +11,9 @@ def read_info(names):
                     break
                 all_data.append(line)
 
+filenames = [f'./file {number}.txt' for number in range(1, 5)]
 
 start = datetime.datetime.now()
-filenames = [f'./file {number}.txt' for number in range(1, 5)]
 for file in filenames:
     read_info(file)
 end = datetime.datetime.now() - start
