@@ -1,5 +1,5 @@
 
-api = "7143876405:AAE6yf1RihNzdWW4LMDIKz995u3mijtTu4o"
+api = ""
 bcaa_cost = 500
 protein_cost = 1500
 creatin_cost = 2000
