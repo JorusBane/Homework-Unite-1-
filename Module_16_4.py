@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Path
+from fastapi import FastAPI, Path, HTTPException
 from typing import  Annotated, List
 from pydantic import BaseModel, Field
 
@@ -17,7 +17,7 @@ async  def get_all_users() -> List[User]:
 
 @app.post("/user/{username}/{age}")
 async def create_user(user: User):
-    user.id = len(users_db) + 1
+    user.id = len(users_db)
     users_db.append(user)
     return user
 
@@ -35,8 +35,8 @@ async def update_user(user_id: int, user: User):
 @app.delete("/users/{user_id}")
 async  def delete_user(user_id: int) :
     try:
-        users_db.pop(user.id)
-        return f"Пользователь номер {user.id} уд"
+        users_db.pop(user_id)
+        return f"Пользователь номер {user_id} удален"
     except IndexError:
          raise HTTPException(status_code=404, detail="Такое пользователя не существует")
 @app.delete("/")
